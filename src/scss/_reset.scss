@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "Onest Variable";
+  src: url("/assets/fonts/onest-latin-300-normal.woff") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Onest Variable";
+  src: url("/assets/fonts/onest-latin-600-normal.woff") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Onest Variable";
+  src: url("/assets/fonts/onest-latin-800-normal.woff") format("woff");
+  font-weight: 800;
+}
+:root {
+  /* Colores */
+  --negro: #393939;
+  --zinc-100: #f4f4f5;
+  --zinc-400: #a1a1aa;
+  --zinc-900: #18181b;
+
+  /* Tipografía */
+  --tipo-principal: "Onest Variable", Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+*::before,
+*::after {
+  display: block;
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  object-fit: cover;
+  /* (Opcional) */
+  object-position: center center;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  appearance: none;
+}
+
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  background-color: var(--zinc-900);
+  color: var(--zinc-100);
+  /* (Opcional) */
+  hyphens: auto;
+  /* (Opcional) */
+  font-smooth: always;
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
