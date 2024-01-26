@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<header class="header">
+  <nav class="header__nav wrapper">
+    <ul class="header__ul">
+      <li class="header__li">
+        <a class="header__link" routerLink="/books" routerLinkActive="active"
+          >Books</a
+        >
+      </li>
+      <li class="header__li">
+        <a
+          class="header__link"
+          routerLink="/books-saved"
+          routerLinkActive="active"
+          >Saved</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
