@@ -1,0 +1,52 @@
+.books {
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 3em;
+  &__tile {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  &__available {
+    border-bottom: 0.0625rem solid green;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
+    gap: 2em;
+  }
+}
+.book {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  &__content {
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  &__img {
+    cursor: pointer;
+    aspect-ratio: 2/3;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 0.3em;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__title {
+    font-size: 1rem;
+  }
+  &__save {
+    width: 1em;
+
+    top: 0.5em;
+
+    right: 0.5em;
+    cursor: pointer;
+  }
+}
