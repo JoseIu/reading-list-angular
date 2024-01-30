@@ -4,27 +4,21 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./layout/home-layout/home-layout.component').then(
-        (m) => m.HomeLayoutComponent
-      ),
+      import('./layout/home-layout/home-layout.component').then((m) => m.HomeLayoutComponent),
     children: [
       {
         path: 'books',
-        loadComponent: () =>
-          import('./pages/books/books.component').then((m) => m.BooksComponent),
+        loadComponent: () => import('./pages/books/books.component').then((m) => m.BooksComponent),
       },
       {
         path: 'books-saved',
         loadComponent: () =>
-          import('./pages/books-saved/books-saved.component').then(
-            (m) => m.BooksSavedComponent
-          ),
+          import('./pages/books-saved/books-saved.component').then((m) => m.BooksSavedComponent),
       },
 
       {
-        path: 'books/:id',
-        loadComponent: () =>
-          import('./pages/book/book.component').then((m) => m.BookComponent),
+        path: 'book/:id',
+        loadComponent: () => import('./pages/book/book.component').then((m) => m.BookComponent),
       },
       {
         path: '**',
