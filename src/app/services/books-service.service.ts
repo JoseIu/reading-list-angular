@@ -8,7 +8,7 @@ import { Books } from '../interfaces/books.interface';
 })
 export class BooksServiceService {
   public initialBooks: Books = library;
-  private _books = new BehaviorSubject<Books>(library);
+  public _books = new BehaviorSubject<Books>(library);
   public books$ = this._books.asObservable();
 
   //to save only the ISBN of the book
@@ -40,6 +40,18 @@ export class BooksServiceService {
     this._savedBooks.next(newBooks);
     //update localStorage with the newBooks saved
     localStorage.setItem('saved-book', JSON.stringify(newBooks));
+
+    //find the book in the initialBooks
+    const bookToRemove = this.initialBooks.library.find((book) => book.book.ISBN === ISBN);
+
+    //if the book exists, add it back to _books
+    if (bookToRemove) {
+      const currentBooks = this._books.getValue().library;
+      // Check if the book already exists in _books
+      if (!currentBooks.find((book) => book.book.ISBN === ISBN)) {
+        this._books.next({ library: [...currentBooks, bookToRemove] });
+      }
+    }
   }
 
   public getSavedBooks(): string[] {
