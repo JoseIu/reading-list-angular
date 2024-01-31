@@ -1,0 +1,38 @@
+.form {
+  display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-template-areas: "search search search" "range range range" "select select select";
+  grid-template-areas: "search select range";
+
+  gap: 2em;
+
+  @media screen and (max-width: 850px) {
+    grid-template-areas:
+      "search search search"
+      "select select range";
+  }
+  &__input {
+    padding: 0.3em 0.5em;
+    width: 100%;
+    border-radius: 0.4em;
+  }
+  &__input--search,
+  &__select {
+    padding: 0.3em 0.5em;
+    border-radius: 0.4em;
+
+    outline: 0.0625rem solid var(--zinc-100);
+  }
+
+  &__search {
+    width: 100%;
+    grid-area: search;
+  }
+  &__range {
+    display: flex;
+    grid-area: range;
+  }
+  &__select {
+    grid-area: select;
+  }
+}

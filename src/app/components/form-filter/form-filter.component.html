@@ -1,0 +1,24 @@
+@if (myForm) {
+<form class="form" [formGroup]="myForm">
+  <div class="form__search">
+    <input
+      formControlName="search"
+      type="text"
+      class="form__input form__input--search"
+      placeholder="Search by title"
+    />
+  </div>
+  <div class="form__range">
+    <input formControlName="range" type="range" name="rage" min="10" max="1500" class="form__input" />
+    <span>2000</span>
+  </div>
+
+  <select name="genre" id="genre" class="form__select" formControlName="sortBy">
+    <option value="0">genre</option>
+    <option value="1">Fancy</option>
+    <option value="2">Science fiction</option>
+    <option value="3">Zombies</option>
+    <option value="4">Terror</option>
+  </select>
+</form>
+}
