@@ -30,19 +30,6 @@ export class BooksSavedComponent implements OnInit {
 
   public getBooksInStorage(booksInsStorage: string[]): void {
     if (booksInsStorage.length) {
-      // let initialBooks: Book[];
-      // let newBooks: Book[];
-
-      // this.booksService.books$.subscribe((books) => {
-      //   initialBooks = books.library;
-
-      //   newBooks = initialBooks.filter((book) => booksInsStorage.includes(book.book.ISBN));
-
-      //   console.log('getBooksInStorage', newBooks);
-
-      //   this.booksSaved = newBooks;
-      // });
-
       this.booksSaved = this.booksService.initialBooks.library.filter((book) =>
         booksInsStorage.includes(book.book.ISBN)
       );
