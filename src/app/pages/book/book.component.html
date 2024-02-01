@@ -1,1 +1,33 @@
-<p>book works!</p>
+@if (book) {
+<section class="book wrapper">
+  <arrow-back class="arrow-back" [routerLink]="'/books'" />
+  <h2 class="book__title">{{ book.book.title }}</h2>
+  <div class="book__content">
+    <div class="book__info">
+      <span class="book__year"> {{ book.book.genre }} - {{ book.book.year }} </span>
+      <p class="book__synopsis">{{ book.book.synopsis }}</p>
+
+      <span class="book__author"
+        >Author: <span class="book__data"> {{ book.book.author.name }}</span>
+      </span>
+      <div class="book__others">
+        Other Books:
+
+        <ul class="book__ul">
+          @for (otrherBooks of book.book.author.otherBooks; track $index) {
+          <li class="book__data">{{ otrherBooks }} -</li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <img
+      class="book__img"
+      [src]="book.book.cover"
+      [alt]="book.book.title"
+      [style]="{ 'view-transition-name': 'book-' + book.book.ISBN }"
+    />
+  </div>
+</section>
+
+}

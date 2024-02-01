@@ -1,0 +1,73 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
+  padding: 1em;
+  &__data {
+    font-weight: 400;
+    color: var(--zinc-400);
+    text-wrap: pretty;
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+
+    @media screen and (max-width: 973px) {
+      flex-direction: column;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  &__year {
+    font-weight: 600;
+  }
+  &__synopsis {
+    text-wrap: pretty;
+  }
+  &__author {
+    font-weight: 600;
+    display: flex;
+    gap: 0.3em;
+  }
+  &__others {
+    font-weight: 600;
+    display: flex;
+    gap: 0.3em;
+  }
+  &__ul {
+    display: flex;
+    gap: 0.2em;
+  }
+  &__img {
+    order: 1;
+    max-width: 20em;
+
+    border-radius: 0.3em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (max-width: 973px) {
+    &__img {
+      order: 1;
+    }
+    &__info {
+      order: 2;
+    }
+  }
+}
+.arrow-back {
+  width: 2.5em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.arrow-back:hover {
+  transform: scale(1.5);
+}
