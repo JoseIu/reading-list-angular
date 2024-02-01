@@ -1,16 +1,14 @@
 .header {
   background-color: rebeccapurple;
   padding: 1em;
-  &__nav {
-  }
+
   &__ul {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
   }
-  &__li {
-  }
+
   &__link {
     padding: 0.2em 0.4em;
     font-weight: 600;
