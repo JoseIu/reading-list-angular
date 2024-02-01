@@ -1,6 +1,11 @@
 @if (book) {
 <article class="book">
-  <img class="book__img" [src]="book.book.cover" [alt]="book.book.title" />
+  <img
+    class="book__img"
+    [src]="book.book.cover"
+    [alt]="book.book.title"
+    [style]="{ 'view-transition-name': 'book-' + book.book.ISBN }"
+  />
   <div class="book__content">
     <h3 class="book__title">{{ book.book.title }}</h3>
 
