@@ -1,6 +1,15 @@
 .header {
-  background-color: rebeccapurple;
-  padding: 1em;
+  background-color: var(--zinc-900);
+  border-bottom: 0.0625rem solid var(--zinc-800);
+
+  margin-bottom: 2em;
+
+  &__nav {
+    padding: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__ul {
     display: flex;
@@ -13,9 +22,37 @@
     padding: 0.2em 0.4em;
     font-weight: 600;
     border-radius: 0.2em;
+    color: var(--zinc-400);
+  }
+}
+.logo {
+  position: relative;
+  width: 3em;
+  height: 3em;
+  padding: 0.3em;
+  outline: 2px solid var(--zinc-100);
+  border-radius: 50%;
+
+  &__text {
+    width: 100%;
+    color: var(--zinc-100);
+    position: absolute;
+    right: 0.6em;
+    top: 0.22em;
+    font-size: 1.1rem;
+    background-color: var(--zinc-900);
+
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+  }
+  &__span {
+    font-size: 0.8rem;
+    font-style: italic;
   }
 }
 
 .active {
-  outline: 0.0625rem solid #fff;
+  outline: 0.0625rem solid var(--zinc-100);
+  color: var(--zinc-100);
 }
