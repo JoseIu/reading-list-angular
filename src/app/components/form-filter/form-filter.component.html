@@ -5,16 +5,16 @@
       formControlName="search"
       type="text"
       class="form__input form__input--search"
-      placeholder="Search by title"
+      placeholder="Search by title..."
     />
   </div>
   <div class="form__range">
     <input formControlName="range" type="range" name="rage" min="10" max="1500" class="form__input" />
-    <span>2000</span>
+    <span class="form__span"> {{ pageRange }} pages </span>
   </div>
 
   <select name="genre" id="genre" class="form__select" formControlName="sortBy">
-    <option class="form__option" value="all">---All----</option>
+    <option class="form__option" value="all">---All Books----</option>
     <option class="form__option" value="Fantasía">Fancy</option>
     <option class="form__option" value="Ciencia ficción">Science fiction</option>
     <option class="form__option" value="Zombies">Zombies</option>
