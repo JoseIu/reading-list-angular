@@ -1,7 +1,5 @@
 .form {
   display: grid;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-template-areas: "search search search" "range range range" "select select select";
   grid-template-areas: "search select range";
 
   gap: 2em;
@@ -29,13 +27,20 @@
     grid-area: search;
   }
   &__range {
-    display: flex;
+    width: 15em;
     grid-area: range;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  &__span {
+    width: 12em;
   }
   &__select {
     grid-area: select;
-    // color: var(--zinc-100);
-    // color: aliceblue;
+    background-color: transparent;
+    color: var(--zinc-100);
   }
   &__option {
     color: var(--zinc-100);
