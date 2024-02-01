@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import library from '../../db/books.json';
 import { Book } from '../interfaces/book.interface';
 import { Books } from '../interfaces/books.interface';
@@ -60,6 +60,11 @@ export class BooksServiceService {
 
     return savedBooks;
   }
+  public getBookByISBN(id: string): Observable<Book> {
+    const foundBook = this._books.getValue().library.find((book) => book.book.ISBN === id);
+    if (!foundBook) return new Observable<Book>();
+    return of(foundBook);
+  }
 
   //Update s_savedBooks from localStorage
   public updateSavedBooks(id: string): void {
@@ -68,22 +73,27 @@ export class BooksServiceService {
     this._savedBooks.next(savedBooks);
   }
 
-  public filterBooks(search?: string, range?: number, sortBy?: string): void {
+  public filterBooks(search?: string, range?: number, filterBy?: string): void {
     const searchTerm = search || '';
     const rangee = range || 0;
-    const sortByy = sortBy || '';
+    const filterByy = filterBy || '';
 
-    let filteredBooks = this.searchByName(this.initialBooks.library, searchTerm);
-    filteredBooks = this.filterByGender(filteredBooks, sortByy);
+    const savedBooks = this.getSavedBooks();
+
+    let initialBooks =
+      this.initialBooks.library.filter((book) => !savedBooks.includes(book.book.ISBN)) || [];
+
+    let filteredBooks = this.searchByName(initialBooks, searchTerm);
+    filteredBooks = this.filterByGender(filteredBooks, filterByy);
     filteredBooks = this.filterByPages(filteredBooks, rangee);
 
     this._books.next({ library: filteredBooks });
   }
 
-  onlySaved(books: Book[], search?: boolean): Book[] {
-    if (!search) return books;
-    return books.filter((book) => this._savedBooks.getValue().includes(book.book.ISBN));
-  }
+  // onlySaved(books: Book[], search?: boolean): Book[] {
+  //   if (!search) return books;
+  //   return books.filter((book) => this._savedBooks.getValue().includes(book.book.ISBN));
+  // }
 
   searchByName(books: Book[], search: string): Book[] {
     if (!search) return [...books];
@@ -92,16 +102,15 @@ export class BooksServiceService {
     return books.filter((book) => book.book.title.toLowerCase().includes(normalizedSearch));
   }
 
-  filterByPages = (books: Book[], pages: number) => {
-    if (!pages) return books;
+  filterByPages(books: Book[], pages: number): Book[] {
+    if (!pages) return [...books];
 
     return books.filter(({ book }) => book.pages >= pages);
-  };
-  filterByGender = (books: Book[], gender: string) => {
-    console.log('GENDER', gender);
-    if (gender === 'all') return books;
+  }
+  filterByGender(books: Book[], gender: string): Book[] {
+    if (gender === 'all' || !gender) return books;
     const lowerCaseGender = gender.toLowerCase();
 
     return books.filter(({ book }) => book.genre.toLowerCase() === lowerCaseGender);
-  };
+  }
 }
