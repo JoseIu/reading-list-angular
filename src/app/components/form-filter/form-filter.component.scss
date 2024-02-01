@@ -9,6 +9,12 @@
       "search search search"
       "select select range";
   }
+  @media screen and (max-width: 400px) {
+    grid-template-areas:
+      "search search search"
+      "select select select"
+      "range  range range";
+  }
   &__input {
     padding: 0.3em 0.5em;
     width: 100%;
