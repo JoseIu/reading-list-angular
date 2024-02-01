@@ -11,7 +11,7 @@
         >Author: <span class="book__data"> {{ book.book.author.name }}</span>
       </span>
       <div class="book__others">
-        Other Books:
+        <span class="book__author">Other Books:</span>
 
         <ul class="book__ul">
           @for (otrherBooks of book.book.author.otherBooks; track $index) {

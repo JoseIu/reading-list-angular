@@ -36,15 +36,21 @@
     font-weight: 600;
     display: flex;
     gap: 0.3em;
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
   &__others {
     font-weight: 600;
-    display: flex;
+    // display: flex;
     gap: 0.3em;
   }
   &__ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.2em;
+  }
+  &__data {
+    text-wrap: pretty;
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
   &__img {
     order: 1;
