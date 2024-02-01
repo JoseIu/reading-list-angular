@@ -34,5 +34,12 @@
   }
   &__select {
     grid-area: select;
+    // color: var(--zinc-100);
+    // color: aliceblue;
+  }
+  &__option {
+    color: var(--zinc-100);
+    background-color: #222;
+    border-radius: 0.4em;
   }
 }
