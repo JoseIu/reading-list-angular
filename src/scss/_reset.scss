@@ -95,6 +95,7 @@ em {
   text-decoration: none;
   color: inherit;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -120,7 +121,7 @@ label {
   color: inherit;
   display: block;
   /* (Opcional) */
-  appearance: none;
+  // appearance: none;
 }
 
 table,
